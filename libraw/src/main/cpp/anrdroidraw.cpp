@@ -202,7 +202,7 @@ extern "C" JNIEXPORT jobject JNICALL Java_com_homesoft_photo_libraw_LibRaw_getBi
     return libRaw->getBitmap16(env);
 }
 
-extern "C" JNIEXPORT jint JNICALL Java_com_homesoft_photo_libraw_LibRaw_drawSurface(JNIEnv* env, jobject jLibRaw, jobject surface) {
+extern "C" JNIEXPORT jboolean JNICALL Java_com_homesoft_photo_libraw_LibRaw_drawSurface(JNIEnv* env, jobject jLibRaw, jobject surface) {
     auto libRaw = getLibRaw(env, jLibRaw);
     return libRaw->drawSurface(env, surface);
 }

@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.system.ErrnoException;
 import android.util.Log;
+import android.view.Surface;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -173,6 +174,7 @@ public class LibRaw implements AutoCloseable {
     public native void setUserBlack(int userBlack);
     public native void setUseCameraMatrix(int useCameraMatrix); // 0 = off, 1 = if auto whitebalance, 3 = always
     public native void setUserMul(float r,float g1,float b,float g2);
+    public native boolean drawSurface(Surface surface);
 
     /**
      * @param automaticMaximumCalculation 0.0 = off, 0.75 = default
