@@ -192,6 +192,19 @@ int AndroidLibRaw::copyImage(uint32_t width, uint32_t height, uint32_t stride, u
             ptr += skip;
         }
         return 0;
+    } else if (format == AHARDWAREBUFFER_FORMAT_R8G8B8A8_UNORM) {
+        auto skip = (stride - width) * 4;
+        auto ptr = static_cast<unsigned char *>(bufferPtr);
+        uint32_t pixel = 0;
+        while (pixel < pixels) {
+            auto rowEnd = pixel + width;
+            while (pixel < rowEnd) {
+                PIXEL8A_LOOP
+                pixel++;
+            }
+            ptr += skip;
+        }
+        return 0;
     } else if (format == AHARDWAREBUFFER_FORMAT_R16G16B16A16_FLOAT) {
         auto skip = (stride - width) * 4;
         auto ptr = static_cast<__fp16 *>(bufferPtr);
