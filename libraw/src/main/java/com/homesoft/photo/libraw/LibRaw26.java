@@ -24,6 +24,11 @@ public class LibRaw26 extends LibRaw {
             return null;
         }
     }
+
+    public Bitmap getSoftwareBitmap() {
+        return super.getBitmap();
+    }
+
     public Bitmap getBitmap() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             return getHardwareBitmap(HardwareBuffer.RGB_888);
